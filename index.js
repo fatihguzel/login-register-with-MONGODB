@@ -40,7 +40,7 @@ app.post("/sign_up",(req,res)=>{
         console.log("Record Inserted Successfully");
     });
 
-    return res.redirect('signup_success.html')
+    return res.sendFile(path.resolve(__dirname+ '/public/signup_success.html'))
 
 })
 
