@@ -57,7 +57,7 @@ app.get("/",async(req,res)=>{
 }).listen(3000);
 
 app.get('/sign_up',async(req,res)=> {
-   return res.sendFile(path.resolve(__dirname+ '/public/signup_success.html'))
+    return res.sendFile(path.resolve(__dirname+ '/public/signup_success.html'))
 })
 
 console.log("Listening on PORT 3000");
