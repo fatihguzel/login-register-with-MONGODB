@@ -10,6 +10,9 @@ app.use(bodyParser.urlencoded({
     extended:true
 }))
 
+app.use('/css',express.static(path.join(__dirname, 'public/styles.css')));
+
+
 mongoose.connect('mongodb+srv://loginregister:login123@cluster0.1nto8.mongodb.net/login-register?retryWrites=true&w=majority',{
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -40,7 +43,7 @@ app.post("/sign_up",(req,res)=>{
         console.log("Record Inserted Successfully");
     });
 
-    return res.sendFile(path.resolve(__dirname+ '/public/signup_success.html'))
+    return res.redirect('/sign_up')
 
 })
 
@@ -52,5 +55,8 @@ app.get("/",(req,res)=>{
     return res.sendFile(path.resolve(__dirname+ '/public/index.html'))
 }).listen(3000);
 
+app.get('/sign_up',(req,res)=> {
+   return res.sendFile(path.resolve(__dirname+ '/public/signup_success.html'))
+})
 
 console.log("Listening on PORT 3000");
