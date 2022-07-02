@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({
 const path = require('path')
 
 app.use('/css',express.static(path.join(__dirname, 'public/styles.css')));
+app.use('/css',express.static(path.join(__dirname, 'public/app.js')));
 
 
 mongoose.connect('mongodb+srv://loginregister:login123@cluster0.1nto8.mongodb.net/login-register?retryWrites=true&w=majority',{
