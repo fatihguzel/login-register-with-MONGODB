@@ -1,7 +1,6 @@
 var express = require("express")
 var bodyParser = require("body-parser")
 var mongoose = require("mongoose")
-var path = require('path');
 
 const app = express()
 
@@ -10,6 +9,7 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({
     extended:true
 }))
+const path = require('path')
 
 app.use('/css',express.static(path.join(__dirname, 'public/styles.css')));
 
