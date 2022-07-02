@@ -21,16 +21,18 @@ db.on('error',()=>console.log("Error in Connecting to Database"));
 db.once('open',()=>console.log("Connected to Database"))
 
 app.post("/sign_up",(req,res)=>{
-    var {name,email,phno,password} = req.body;
+    var name = req.body.name;
+    var email = req.body.email;
+    var phno = req.body.phno;
+    var password = req.body.password;
 
     var data = {
-        name,
-        email,
-        phno,
-        password
+        "name": name,
+        "email" : email,
+        "phno": phno,
+        "password" : password
     }
-    
-    console.log(req.body);
+
     db.collection('users').insertOne(data,(err,collection)=>{
         if(err){
             throw err;
@@ -47,7 +49,7 @@ app.get("/",(req,res)=>{
     res.set({
         "Allow-access-Allow-Origin": '*'
     })
-    return res.redirect('signup_success.html');
+    return res.redirect('index.html');
 }).listen(3000);
 
 
