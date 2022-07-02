@@ -42,13 +42,16 @@ app.post("/sign_up",(req,res)=>{
 
 })
 
+const PORT = process.env.PORT
 
 app.get("/",(req,res)=>{
     res.set({
         "Allow-access-Allow-Origin": '*'
     })
     return res.redirect('index.html');
-}).listen(3000);
+}).listen(PORT,()=>{
+    console.log("Listening on PORT 3000");
+});
 
 
-console.log("Listening on PORT 3000");
+
