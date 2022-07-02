@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({
     extended:true
 }))
 
-mongoose.connect(process.env.USER,{
+mongoose.connect('mongodb+srv://loginregister:login123@cluster0.1nto8.mongodb.net/login-register?retryWrites=true&w=majority',{
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -38,20 +38,17 @@ app.post("/sign_up",(req,res)=>{
         console.log("Record Inserted Successfully");
     });
 
-    return res.redirect('index.html')
+    return res.redirect('signup_success.html')
 
 })
 
-const PORT = process.env.PORT
 
 app.get("/",(req,res)=>{
     res.set({
         "Allow-access-Allow-Origin": '*'
     })
     return res.redirect('index.html');
-}).listen(PORT,()=>{
-    console.log("Listening on PORT 3000");
-});
+}).listen(3000);
 
 
-
+console.log("Listening on PORT 3000");
