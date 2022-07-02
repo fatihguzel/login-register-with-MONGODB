@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({
     extended:true
 }))
 
-mongoose.connect('mongodb+srv://loginregister:login123@cluster0.1nto8.mongodb.net/login-register?retryWrites=true&w=majority',{
+mongoose.connect(process.env.USER,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
