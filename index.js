@@ -24,7 +24,7 @@ var db = mongoose.connection;
 db.on('error',()=>console.log("Error in Connecting to Database"));
 db.once('open',()=>console.log("Connected to Database"))
 
-app.post("/sign_up",(req,res)=>{
+app.post("/sign_up",async(req,res)=>{
     var name = req.body.name;
     var email = req.body.email;
     var phno = req.body.phno;
