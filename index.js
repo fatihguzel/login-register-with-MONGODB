@@ -49,14 +49,14 @@ app.post("/sign_up",async(req,res)=>{
 })
 
 
-app.get("/",(req,res)=>{
+app.get("/",async(req,res)=>{
     res.set({
         "Allow-access-Allow-Origin": '*'
     })
     return res.sendFile(path.resolve(__dirname+ '/public/index.html'))
 }).listen(3000);
 
-app.get('/sign_up',(req,res)=> {
+app.get('/sign_up',async(req,res)=> {
    return res.sendFile(path.resolve(__dirname+ '/public/signup_success.html'))
 })
 
