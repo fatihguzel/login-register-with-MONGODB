@@ -26,17 +26,15 @@ db.on('error',()=>console.log("Error in Connecting to Database"));
 db.once('open',()=>console.log("Connected to Database"))
 
 app.post("/sign_up",async(req,res)=>{
-    var name = req.body.name;
-    var email = req.body.email;
-    var phno = req.body.phno;
-    var password = req.body.password;
+    const {name,email,phno,password} = req.body
 
     var data = {
-        "name": name,
-        "email" : email,
-        "phno": phno,
-        "password" : password
+        name,
+        email,
+        phno,
+        password
     }
+    console.log(req.body);
 
     db.collection('users').insertOne(data,(err,collection)=>{
         if(err){
