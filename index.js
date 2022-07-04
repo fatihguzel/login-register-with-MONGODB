@@ -15,12 +15,7 @@ app.use('/css',express.static(path.join(__dirname, 'public/styles.css')));
 app.use('/css',express.static(path.join(__dirname, 'public/app.js')));
 
 
-mongoose.connect('mongodb+srv://new_user_31:new_user_31@cluster0.1nto8.mongodb.net/newDatabase?retryWrites=true&w=majority',{
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true
-});
+mongoose.connect('mongodb+srv://new_user_31:new_user_31@cluster0.1nto8.mongodb.net/newDatabase?retryWrites=true&w=majority',{});
 
 var db = mongoose.connection;
 
